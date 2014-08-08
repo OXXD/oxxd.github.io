@@ -1,19 +1,19 @@
-title:            Site Title
-description:      Describe your website here.
+title:            oxxd's blog
+description:      oxxd's blog
 disqus_shortname: shortname
 # Your site's domain goes here. When working locally use localhost server leave blank
 # PS. If you set this wrong stylesheets and scripts won't load and most links will break.
 # PPS. If you leave it blank for local testing home links won't work, they'll be fine for live domains though.
-url:              http://localhost:4000
+url:              http://oxxd.github.io
 
 # Owner/author information
 owner:
-  name:           Your Name
+  name:           oxxd
   avatar:         avatar.jpg
   bio:            "Your bio goes here. It shouldn't be super long but a good two sentences or two should suffice."
-  email:          you@email.com
+  email:          oxxxxd@gmail.com
   # Social networking links used in footer. Update and remove as you like.
-  twitter:        
+  twitter:        @oxxd
   facebook:       
   github:         
   stackexchange:  
@@ -23,7 +23,7 @@ owner:
   tumblr:         
   # For Google Authorship https://plus.google.com/authorship
   # google plus id, include the '+', eg +mmistakes
-  google_plus:    +yourid
+  google_plus:    
 
 # Analytics and webmaster tools stuff goes here
 google_analytics:   
