@@ -34,17 +34,41 @@ app.listen(process.env.PORT || 5050)
 * 创建应用完成之后点击代码管理，这里使用 Git 进行正式的项目部署。
 
 ### 项目部署
-
-在你应用代码目录里，克隆 Git 远程仓库
+首先进入到自己的 Git 项目然后确保本地允许没有问题后，创建一个仓库 sinacloud
 
 ``` bash
-$ git clone https://git.sinacloud.com/fakesteam
+$ git remote add sinacloud https://git.sinacloud.com/yourapp
+$ git push sinacloud master
+```
+
+部署的时候，Git 会显示当前的进度，如果部署失败，会提示相应的错误信息（比如 package.json 格式问题等）。  
+
+部署完成后，就可以通过 http://yourapp.applinzi.com 来访问应用了。  
+
+参考[文档](http://www.sinacloud.com/doc/sae/docker/nodejs-getting-started.html)
+
+### 后期维护
+
+后期维护可以采用两种方式
+
+1. 直接本地修改后部署到 sinacloud 仓库
+
+``` bash
+$ git add .
+$ git commit -m 'update'
+$ git push sinacloud master
+```
+
+2.或者在你应用代码目录里，克隆 Git 远程仓库
+
+``` bash
+$ git clone https://git.sinacloud.com/yourapp
 ```
 
 输入您的安全邮箱和密码。
 
 ``` bash
-$ cd fakesteam
+$ cd yourapp
 ```
 
 编辑代码并部署代码
@@ -52,19 +76,10 @@ $ cd fakesteam
 ``` bash
 $ git add .
 $ git commit -m 'Init my first app'
-$ git push sae master
+$ git push 
 ```
 
-上面的代码是可以在应用管理-应用-代码管理里看得到的。但是我尝试使用 sae 仓库部署发现项目部署失败。可以换用[文档](http://www.sinacloud.com/doc/sae/docker/nodejs-getting-started.html)里提到的另外一种方式。
-
-``` bash
-$ git remote add sinacloud https://git.sinacloud.com/helloworld
-$ git push sinacloud master
-```
-
-部署的时候，Git 会显示当前的进度，如果部署失败，会提示相应的错误信息（比如 package.json 格式问题等）。
-
-部署完成后，就可以通过 http://helloworld.applinzi.com 来访问应用了。
+上面的代码是可以在应用管理-应用-代码管理里看得到的。
 
 ### 数据库
 **为应用添加数据库。**  
