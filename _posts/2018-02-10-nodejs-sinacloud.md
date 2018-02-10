@@ -11,7 +11,7 @@ share: true
 这是一个使用新浪云部署 Node.js 项目的实践，主要目的是为了总结一些自己部署的经验和遇到的坑，希望有参考价值。
 
 ### 前提
-为了达到部署成功的目的，可能需要一些 git, Node.js 经验，另外新浪云也提供了比较丰富的[文档](http://www.sinacloud.com/index/support.html)。
+为了达到部署成功的目的，可能需要一些 Git, Node.js 经验，另外新浪云也提供了比较丰富的[文档](http://www.sinacloud.com/index/support.html)。
 
 ### 准备
 先确定一下自己的项目设置，最好是把默认端口设置成 5050，以及修改 MySQL 链接设置。下面是 app.js 的设置，注意最后一行.
@@ -35,7 +35,7 @@ app.listen(process.env.PORT || 5050)
 
 ### 项目部署
 
-在你应用代码目录里，克隆git远程仓库
+在你应用代码目录里，克隆 Git 远程仓库
 
 ``` bash
 $ git clone https://git.sinacloud.com/fakesteam
@@ -55,20 +55,21 @@ $ git commit -m 'Init my first app'
 $ git push sae master
 ```
 
-上面的代码是可以在应用管理-应用-代码管理里看的到的。但是我尝试使用 sae 仓库部署发现项目部署失败。可以换用[文档](http://www.sinacloud.com/doc/sae/docker/nodejs-getting-started.html)里提到的另外一种方式。
+上面的代码是可以在应用管理-应用-代码管理里看得到的。但是我尝试使用 sae 仓库部署发现项目部署失败。可以换用[文档](http://www.sinacloud.com/doc/sae/docker/nodejs-getting-started.html)里提到的另外一种方式。
 
 ``` bash
 $ git remote add sinacloud https://git.sinacloud.com/helloworld
 $ git push sinacloud master
 ```
 
-部署的时候，git 会显示当前的进度，如果部署失败，会提示相应的错误信息（比如 package.json 格式问题等）。
+部署的时候，Git 会显示当前的进度，如果部署失败，会提示相应的错误信息（比如 package.json 格式问题等）。
 
-部署完成后，就可以通过 http://helloworld.applinzi.com 来访问我们的应用了。
+部署完成后，就可以通过 http://helloworld.applinzi.com 来访问应用了。
 
 ### 数据库
-为应用添加数据库。  
-进入应用管理-数据库与缓存服务-共享性 MySQL， 创建 MySQL，跟着步骤一步一步等等创建完成。 创建完成之后选择管理，会跳转到类似 phpmyadmin 的网页版数据库管理工具，可以倒入数据文件或者执行 SQL 语句。  
+**为应用添加数据库。**  
+
+进入应用管理-数据库与缓存服务-共享性 MySQL， 创建 MySQL，跟着步骤一步一步创建。 创建完成之后选择管理，会跳转到类似 phpmyadmin 的网页版数据库管理工具，可以倒入数据文件或者执行 SQL 语句。  
 
 **数据库链接**
 
@@ -92,7 +93,12 @@ var connection = mysql.createConnection({
 ##### 502 错误
 首先在自己本地 npm start 确认项目跑的起来，确认 app.js 和 MySQL 设置无误。如果都没问题可能是粘滞会话没有打开，应用-应用设置-粘滞会话开启，我打开之后等待一会页面就能访问了，暂时不确定是不是这个设置影响的。
 ##### 云豆消耗异常
-注意控制台中代码空间的消耗量，项目代码保持在 100M 以下，超过 100M 是按量收费的，云豆会消耗很快。  
+注意控制台中代码空间的消耗量，项目代码保持在 100M 以下，超过 100M 是按量收费的，云豆会消耗很快。当日消耗的云豆可以在[近 7 天服务消费明细查看](http://www.sinacloud.com/ucenter/consumedetail)。  
 减少代码量有这些方法，.gitignore 中一定要加上 node_modules，如果有大量图片等静态资源文件，推荐图片[压缩](https://sspai.com/post/40791)之后在上传。
 ##### 暂停应用
 在云豆预算中设置预算为 1 可以暂停应用。如果网页版设置不了，可以 App Store 下载 SAE 设置。
+
+### 参考文档
+[产品文档](http://www.sinacloud.com/index/support.html)  
+[NodeJS应用部署指南](http://www.sinacloud.com/doc/sae/docker/nodejs-getting-started.html)  
+[如何使用共享MySQL服务](http://www.sinacloud.com/doc/sae/docker/howto-use-mysql.html)
