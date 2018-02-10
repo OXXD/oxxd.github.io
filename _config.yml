@@ -36,6 +36,9 @@ bing_verify:
 links:
   - title: Theme Setup
     url: /theme-setup
+  - title: oxxd.me
+    url: http://oxxd.me
+    external: true
   - title: fakesteam
     url: http://fakesteam.oxxd.me
     external: true
