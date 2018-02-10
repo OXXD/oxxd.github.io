@@ -55,7 +55,7 @@ $ git commit -m 'update'
 $ git push sinacloud master
 ```
 
-2.或者在你应用代码目录里，克隆 Git 远程仓库
+2. 或者在你应用代码目录里，克隆 Git 远程仓库
 
 ``` bash
 $ git clone https://git.sinacloud.com/yourapp
