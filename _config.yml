@@ -10,15 +10,15 @@ url:              http://oxxd.github.io
 owner:
   name:           oxxd
   avatar:         avatar.jpg
-  bio:            "Your bio goes here. It shouldn't be super long but a good two sentences or two should suffice."
+  bio:            "Frontend Web Developer"
   email:          oxxxxd@gmail.com
   # Social networking links used in footer. Update and remove as you like.
-  twitter:        
+  twitter:        https://twitter.com/OXXD
   facebook:       
-  github:         
+  github:         https://github.com/OXXD
   stackexchange:  
   linkedin:       
-  instagram:      
+  instagram:      https://www.instagram.com/oxxd/
   flickr:         
   tumblr:         
   # For Google Authorship https://plus.google.com/authorship
@@ -36,8 +36,8 @@ bing_verify:
 links:
   - title: Theme Setup
     url: /theme-setup
-  - title: External Link
-    url: http://mademistakes.com
+  - title: fakesteam
+    url: http://fakesteam.oxxd.me
     external: true
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
