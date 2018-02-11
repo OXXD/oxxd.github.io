@@ -2,7 +2,7 @@
 layout: post
 title: 使用新浪云部署 Node.js 项目
 description: ""
-modified: 2018-02-10
+modified: 2018-02-11
 tags: [post frontend]
 comments: true
 share: true
@@ -14,7 +14,7 @@ share: true
 为了达到部署成功的目的，可能需要一些 Git, Node.js 经验，另外新浪云也提供了比较丰富的[文档](http://www.sinacloud.com/index/support.html)。
 
 ### 准备
-先确定一下自己的项目设置，最好是把默认端口设置成 5050，以及修改 MySQL 链接设置。下面是 app.js 的设置，注意最后一行.
+先确定一下自己的项目设置，最好是把默认端口设置成 5050，以及修改 MySQL 链接设置。下面是 app.js 的设置，注意最后一行。
 
 ``` javascript
 var express = require('express')
@@ -24,13 +24,13 @@ app.listen(process.env.PORT || 5050)
 ```
 
 ### 创建应用
-这一步大部分步骤都比较简单，会采用官方提供的文档描述。
-* 登录『新浪云控制台』，点击『创建新应用』
-* 选择 NodeJS 填写二级域名和应用名车，实例个数推荐设置为 1. 注意 Node.js 项目是按小时收费的，每小时容器消耗 3云豆/小时，共享 MySQL 租金 2云豆/小时。也就是说一天消耗 50 云豆左右。在应用预算里也可以看到提示 『该应用使用了共享型MySQL，应用预算云豆数量不能低于日租金48云豆。』
+这一步大部分步骤都比较简单，会采用官方提供的文档描述。  
+* 登录『新浪云控制台』，点击『创建新应用』  
+* 选择 NodeJS 填写二级域名和应用名称，实例个数推荐设置为 1。注意 Node.js 项目是按小时收费的，每小时容器消耗 3云豆/小时，共享 MySQL 租金 2云豆/小时。也就是说一天消耗 50 云豆左右。在应用预算里也可以看到提示 『该应用使用了共享型MySQL，应用预算云豆数量不能低于日租金48云豆。』  
 * 创建应用完成之后点击代码管理，这里使用 Git 进行正式的项目部署。
 
 ### 项目部署
-首先进入到自己的 Git 项目然后确保本地允许没有问题后，创建一个仓库 sinacloud
+首先进入到自己的 Git 项目然后确保本地运行没有问题后，创建一个仓库 sinacloud
 
 ``` bash
 $ git remote add sinacloud https://git.sinacloud.com/yourapp
@@ -47,7 +47,7 @@ $ git push sinacloud master
 
 后期维护可以采用两种方式
 
-1. 直接本地修改后部署到 sinacloud 仓库
+1.直接本地修改后部署到 sinacloud 仓库
 
 ``` bash
 $ git add .
@@ -55,13 +55,13 @@ $ git commit -m 'update'
 $ git push sinacloud master
 ```
 
-2. 或者在你应用代码目录里，克隆 Git 远程仓库
+2.或者在你应用代码目录里，克隆 Git 远程仓库
 
 ``` bash
 $ git clone https://git.sinacloud.com/yourapp
 ```
 
-输入您的安全邮箱和密码。
+输入安全邮箱和密码。
 
 ``` bash
 $ cd yourapp
@@ -105,11 +105,11 @@ var connection = mysql.createConnection({
 首先在自己本地 npm start 确认项目跑的起来，确认 app.js 和 MySQL 设置无误。如果都没问题可能是粘滞会话没有打开，应用-应用设置-粘滞会话开启，我打开之后等待一会页面就能访问了，暂时不确定是不是这个设置影响的。
 ##### 云豆消耗异常
 注意控制台中代码空间的消耗量，项目代码保持在 100M 以下，超过 100M 是按量收费的，云豆会消耗很快。当日消耗的云豆可以在[近 7 天服务消费明细查看](http://www.sinacloud.com/ucenter/consumedetail)。  
-减少代码量有这些方法，.gitignore 中一定要加上 node_modules，如果有大量图片等静态资源文件，推荐图片[压缩](https://sspai.com/post/40791)之后在上传。
+减少代码量有这些方法，.gitignore 中一定要加上 node_modules，如果有大量图片等静态资源文件，推荐图片[压缩](https://sspai.com/post/40791)之后再上传。
 ##### 暂停应用
 在云豆预算中设置预算为 1 可以暂停应用。如果网页版设置不了，可以 App Store 下载 SAE 设置。
 
 ### 参考文档
-[产品文档](http://www.sinacloud.com/index/support.html)  
-[NodeJS应用部署指南](http://www.sinacloud.com/doc/sae/docker/nodejs-getting-started.html)  
-[如何使用共享MySQL服务](http://www.sinacloud.com/doc/sae/docker/howto-use-mysql.html)
+* [产品文档](http://www.sinacloud.com/index/support.html)  
+* [NodeJS应用部署指南](http://www.sinacloud.com/doc/sae/docker/nodejs-getting-started.html)  
+* [如何使用共享MySQL服务](http://www.sinacloud.com/doc/sae/docker/howto-use-mysql.html)
