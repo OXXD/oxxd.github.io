@@ -47,18 +47,15 @@ var connection = mysql.createConnection({
     <a href="images/nodejs-sinacloud_2018-02-11_15-55-49.png">
         <img src="images/nodejs-sinacloud_2018-02-11_15-55-49.png" alt="">
     </a>
-	<figcaption><span>登录『新浪云控制台』，点击『创建新应用』</span>.</figcaption>
+	<figcaption><span>登录『新浪云控制台』，点击云应用，点击『创建新应用』</span>.</figcaption>
 </figure>
 
-* 登录『新浪云控制台』，点击『创建新应用』 
 <figure>
     <a href="images/nodejs-sinacloud_2018-02-11_15-58-54.png">
         <img src="images/nodejs-sinacloud_2018-02-11_15-58-54.png" alt="">
     </a>
-	<figcaption><span>选择 NodeJS 填写二级域名和应用名称</span>.</figcaption>
+	<figcaption><span>选择 NodeJS 填写二级域名和应用名称。实例个数推荐设置为 1。注意 Node.js 项目是按小时收费的。</span>.</figcaption>
 </figure>
-
-* 选择 NodeJS 填写二级域名和应用名称，实例个数推荐设置为 1。注意 Node.js 项目是按小时收费的。  
 
 <figure>
     <a href="images/nodejs-sinacloud_2018-02-11_16-01-20.png">
