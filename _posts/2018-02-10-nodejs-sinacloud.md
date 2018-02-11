@@ -74,7 +74,7 @@ $ git remote add sinacloud https://git.sinacloud.com/yourapp
 $ git push sinacloud master
 ```
 
-这里说一下没使用过 Git 的同学如何初始化一个 Git 项目和 commit 操作。具体的可以参考[文档](https://git-scm.com/book/zh/v2)和 Github [帮助]。(https://help.github.com/)
+这里说一下没使用过 Git 的同学如何初始化一个 Git 项目和 commit 操作。具体的可以参考[文档](https://git-scm.com/book/zh/v2)和 Github [帮助](https://help.github.com/)。
 ``` bash
 # 初始化 git 项目
 git init
