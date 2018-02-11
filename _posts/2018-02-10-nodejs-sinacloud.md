@@ -25,7 +25,7 @@ app.listen(process.env.PORT || 5050)
 
 下面是数据库连接 pool.js 的设置。
 ``` javascript
-var mysql      = require('mysql');
+var mysql = require('mysql');
 
 // 连接共享型MySQL
 var connection = mysql.createConnection({
@@ -136,7 +136,7 @@ $ git push
 ### 数据库
 **为应用添加数据库。**  
 
-进入应用管理-数据库与缓存服务-共享性 MySQL， 创建 MySQL，跟着步骤一步一步创建。 创建完成之后选择管理，会跳转到类似 phpmyadmin 的网页版数据库管理工具，可以倒入数据文件或者执行 SQL 语句。  
+进入应用管理-数据库与缓存服务-共享型 MySQL， 创建 MySQL，跟着步骤一步一步创建。 创建完成之后选择管理，会跳转到类似 phpmyadmin 的网页版数据库管理工具，可以倒入数据文件或者执行 SQL 语句。  
 
 <figure>
     <a href="../images/nodejs-sinacloud_2018-02-11_16-02-03.png">
