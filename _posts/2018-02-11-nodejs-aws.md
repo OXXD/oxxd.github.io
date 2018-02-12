@@ -42,14 +42,87 @@ AWS 的 [12 月免费套餐](https://aws.amazon.com/cn/free/)提供相当多的�
 创建 EC2 实例步骤  跟着向导一步步向下就可以了，这里我选择的服务器是 Ubuntu 的，Ubuntu 系统默认用户名是 ubuntu 一会儿会用到。
 
 ### 为 EC2 配置入站端口
+创建好之后首先要配置一下入站规则，让服务器允许 HTTP 端口。步骤以下。
+<figure class="half">
+    <a href="../images/nodejs-aws10.png">
+        <img src="../images/nodejs-aws10.png" alt="">
+    </a>
+    <a href="../images/nodejs-aws11.png">
+        <img src="../images/nodejs-aws11.png" alt="">
+    </a>
+	<figcaption><span>配置入站端口</span>.</figcaption>
+</figure>
+1. 前往 EC2 控制台。选择 Secruity Groups，选中刚刚创建的实例所用的规则，点击 Action，点击 Edit inbound rules(编辑入站规则)。
+2. 点击 Add Rule，在类型下拉框中选择 HTTP，默认会在端口处为你填上 80 端口。
+3. 添加自定义端口也是一样的步骤。类型中选择 Custom 就可以了。
 
 ### 连接 EC2 实例
+接下来是连接 EC2 实例。这一步是比较重要的，毕竟连接上了才能做后续操作。打开终端开始输入命令吧。
+<figure>
+    <a href="../images/nodejs-aws08.png">
+        <img src="../images/nodejs-aws08.png" alt="">
+    </a>
+	<figcaption><span>连接 EC2 实例</span>.</figcaption>
+</figure>
+``` bash
+# 首先使用 chmod 命令来确保您的私有密钥文件不是公开可见的，
+chmod 400 testEC2.pem 
+# 连接。注意 @ 后面换成自己的实例 DNS 地址或者 IP 地址
+ssh -i "testEC2.pem" ubuntu@ec2-198-51-100-1.compute-1.amazonaws.com
+```
 
 ### 安装 Node.js
+连接上之后就可以开始安装 Node.js 等我们需要的服务啦。这些全都是在命令行内操作的，安装方法也还有其他很多。[参考](https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions)
+
+``` bash
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+sudo apt-get install -y nodejs
+```
+
+检查是否安装成功
+``` bash
+node -v
+```
 
 ### 安装 Apache + PHP + MySQL
+虽然我们不需要用到 Apache，但是我们需要在本地安装 MySQL。数据库服务也可以选择 AWS 提供的 RDS 更加方便。但是我创建的 RDS 实例连不上，所以就直接在服务器上搭数据库了。
+这里直接安装 LAMP, [参考](https://help.ubuntu.com/community/ApacheMySQLPHP)。
+``` bash 
+# 检查更新
+sudo apt-get update
+# 安装 LAMP
+sudo apt-get install lamp-server^
+```
+
+也可以分开安装，具体就不详述了。如果需要 phpmyadmin, [参考](https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-ubuntu-12-04)
+``` bash
+# 安装 phpmyadmin
+sudo apt-get install phpmyadmin apache2-utils
+```
+
+连接数据库验证一下安装是否成功
+``` bash
+mysql -u root -p
+```
+验证 Apach 是否安装成功直接打开 EC2 DNS地址就可以了，看到页面就说明 Apache 启动成功。如果没有看到页面，可以尝试重启 EC2 实例。  
+
+这里因为不需要 Apach 并且想偷懒直接把 Node 运行在 80 端口，所以把 Apache 禁用了
+``` bash
+ sudo systemctl stop apache2.service.
+```
 
 ### 部署
+我这里部署是直接从 Github 上把自己项目 clone 下来的，这是最方便的方式了。  
+``` bash
+git clone https://github.com/yourapp.git
+cd your app
+
+# 执行 screen 保持 node 一直在跑。 SSH 连接过几分钟没有操作是会自动断开的
+screen
+# 因为 app.js 中设置了端口号为 80 所以需要 sudo 权限启动应用，否则不需要
+sudo node app.js
+```
+打开 EC2 DNS地址访问是否能够看到页面。
 
 ### 绑定 Elastic IP 以及自定义域名
 
