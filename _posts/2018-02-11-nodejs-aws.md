@@ -115,7 +115,7 @@ mysql -u root -p
 我这里部署是直接从 Github 上把自己项目 clone 下来的，这是最方便的方式了。  
 ``` bash
 git clone https://github.com/yourapp.git
-cd your app
+cd yourapp
 
 # 执行 screen 保持 node 一直在跑。 SSH 连接过几分钟没有操作是会自动断开的
 screen
@@ -125,6 +125,26 @@ sudo node app.js
 打开 EC2 DNS地址访问是否能够看到页面。
 
 ### 绑定 Elastic IP 以及自定义域名
+如果不想用系统分配的一长串的 DNS 地址或者 IP 地址来访问网站的话就需要自定义域名啦。下面说一下如何给 EC2 分配静态 IP 并且绑定自定义域名。
+<figure class="half">
+    <a href="../images/nodejs-aws13.png">
+        <img src="../images/nodejs-aws13.png" alt="">
+    </a>
+    <a href="../images/nodejs-aws16.png">
+        <img src="../images/nodejs-aws16.png" alt="">
+    </a>
+	<figcaption><span>给 EC2 实例分配静态 IP</span>.</figcaption>
+</figure>
+为了要给 EC2 实例帮顶自定义域名首先要使用 Elastic IP 给他分配静态 IP 地址。注意 AWS 规定创建了一个静态 IP 地址如果没有绑定实例是会按小时收费的。  
+点击 Elastic IP，点击 Allocate new address, 在弹出的窗口中将 EC2 实例(Instance)分配给这个地址。 
+<figure>
+    <a href="../images/nodejs-aws17.png">
+        <img src="../images/nodejs-aws17.png" alt="">
+    </a>
+	<figcaption><span>回到 EC2 控制台可以看到实例地址也做了改变。</span>.</figcaption>
+</figure>
+
+#### 到自己的域名注册商中解析域名
 
 ### 填坑
 
