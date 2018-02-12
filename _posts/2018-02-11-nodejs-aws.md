@@ -12,7 +12,7 @@ share: true
 这是一篇最近尝试使用 AWS 的 12 个月免费额度以内的 EC2 部署 Node.js 项目的实践。第一次接触服务器和线上环境部署，遇到了不少问题，很多地方都是一通 Google 之后胡乱操作出结果的。方法估计也不是最好用的，写文章主要是给自己一个总结和分享，建议可以看文末那几篇写得比我清楚很多的文章。部署 Node.js 项目还有很多其他更好的方案，比如 Digital Ocean 的 $5 一月的 VPS，新浪云的更简单的部署也可以参考之前写的[文章](http://oxxd.github.io/nodejs-sinacloud)。还有 Heroku 好像也是一个不错的解决方案，以后尝试之后再总结吧。  
 AWS 的 [12 月免费套餐](https://aws.amazon.com/cn/free/)提供相当多的服务，包括最主要用到的 EC2(服务器), RDS(关系型数据库), 是一个用来搭建小型网站的很好的解决方案。详细可以参考[这里](https://aws.amazon.com/cn/free/faqs/?ft=nf&refid=ha_a131L000005CqVRQA0)  
 本来我以为 [Elastic Beanstalk](https://aws.amazon.com/cn/getting-started/tutorials/launch-an-app/) 也是包含在免费套餐里的，但是写这篇文章的时候发现并不是 XD。不然使用 Elastic Beanstalk 一键部署项目应该是更简单的选择。我也尝试过使用 Elastic Beanstalk 部署，但是代码上传完毕之后报错找不到 package.json 就不了了之了。  
-另外说一下 AWS 的收费机制是账单制度，也就是每个月底会根据你的使用量来进行收费，所以要注意自己的服务用量，以避免额外收费。有可能产生额外收费的地方我稍后会总结在文末。
+另外说一下 AWS 的收费机制是账单制度，也就是每个月底会根据你的使用量来进行收费，所以要注意自己的服务用量，以避免额外收费。
 
 ### 申请 AWS 账号
 首先申请 AWS 账号需要提供信用卡，不确定是否需要双币信用卡。信用卡是为了验证用户信息以及后续产生的费用收费的。确认没问题之后可以在这里跟着向导进行[注册](https://aws.amazon.com/cn/free/)，期间会收到英文电话提示输入验证码，信用卡验证会扣一笔 1 美元的扣款，理论上是为了验证卡片，后续会退回。  
@@ -153,7 +153,7 @@ sudo node app.js
 	<figcaption><span>添加一条 A 纪录，使用二级域名的话 Host 里填二级域名，使用祝域名则添空，后面 Value 填前面 Elastic IP 分配的静态 IP 就可以了。</span>.</figcaption>
 </figure>
 
-### 填坑
+<!-- ### 填坑 -->
 
 
 ### 参考文档
