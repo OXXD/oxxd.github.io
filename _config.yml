@@ -1,5 +1,5 @@
-title:            oxxd's blog
-description:      oxxd's blog
+title:            OXXD's Blog
+description:      OXXD's Blog
 disqus_shortname: oxxd990
 # Your site's domain goes here. When working locally use localhost server leave blank
 # PS. If you set this wrong stylesheets and scripts won't load and most links will break.
@@ -34,8 +34,8 @@ bing_verify:
 # Links to include in top navigation
 # For external links add external: true
 links:
-  - title: Theme Setup
-    url: /theme-setup
+  - title: About Me
+    url: /about
   - title: oxxd.me
     url: http://oxxd.me
     external: true
