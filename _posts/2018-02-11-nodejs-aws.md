@@ -122,7 +122,7 @@ screen
 # 因为 app.js 中设置了端口号为 80 所以需要 sudo 权限启动应用，否则不需要
 sudo node app.js
 ```
-打开 EC2 DNS地址访问是否能够看到页面。
+打开 EC2 DNS地址访问是否能够看到页面。至此部署成功啦，Hooray!
 
 ### 绑定 Elastic IP 以及自定义域名
 如果不想用系统分配的一长串的 DNS 地址或者 IP 地址来访问网站的话就需要自定义域名啦。下面说一下如何给 EC2 分配静态 IP 并且绑定自定义域名。
@@ -135,7 +135,7 @@ sudo node app.js
     </a>
 	<figcaption><span>给 EC2 实例分配静态 IP</span>.</figcaption>
 </figure>
-为了要给 EC2 实例帮顶自定义域名首先要使用 Elastic IP 给他分配静态 IP 地址。注意 AWS 规定创建了一个静态 IP 地址如果没有绑定实例是会按小时收费的。  
+为了要给 EC2 实例绑定自定义域名首先要使用 Elastic IP 给他分配静态 IP 地址。注意 AWS 规定创建了一个静态 IP 地址如果没有绑定实例是会按小时收费的。  
 点击 Elastic IP，点击 Allocate new address, 在弹出的窗口中将 EC2 实例(Instance)分配给这个地址。 
 <figure>
     <a href="../images/nodejs-aws17.png">
@@ -145,6 +145,13 @@ sudo node app.js
 </figure>
 
 #### 到自己的域名注册商中解析域名
+这里我使用的是 namecheap，其他域名提供商解析域名方式也大同小异。
+<figure>
+    <a href="../images/nodejs-aws-namecheap.png">
+        <img src="../images/nodejs-namecheap.png" alt="">
+    </a>
+	<figcaption><span>添加一条 A 纪录，使用二级域名的话 Host 里填二级域名，使用祝域名则添空，后面 Value 填前面 Elastic IP 分配的静态 IP 就可以了。</span>.</figcaption>
+</figure>
 
 ### 填坑
 
