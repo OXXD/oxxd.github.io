@@ -150,7 +150,7 @@ sudo node app.js
     <a href="../images/nodejs-aws-namecheap.png">
         <img src="../images/nodejs-aws-namecheap.png" alt="">
     </a>
-	<figcaption><span>添加一条 A 纪录，使用二级域名的话 Host 里填二级域名，使用祝域名则添空，后面 Value 填前面 Elastic IP 分配的静态 IP 就可以了。</span>.</figcaption>
+	<figcaption><span>添加一条 A 纪录，使用二级域名的话 Host 里填二级域名，使用主域名则添空，后面 Value 填前面 Elastic IP 分配的静态 IP 就可以了。</span>.</figcaption>
 </figure>
 
 <!-- ### 填坑 -->
